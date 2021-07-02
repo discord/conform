@@ -47,10 +47,8 @@ defmodule Conform.ReleasePlugin do
   end
 
   def before_assembly(%{profile: %{overlays: overlays} = profile} = release) do
-    include_pre_start? =
-      if_distillery :lt, "1.2.0", do: true, else: false
-    pre_or_post_configure =
-      if_distillery :lt, "1.5.0", do: "pre_configure", else: "post_configure"
+    include_pre_start? = false
+    pre_or_post_configure = "post_configure"
 
     post_configure_src = Path.join(["#{:code.priv_dir(:conform)}", "bin", "#{pre_or_post_configure}.sh"])
     pre_upgrade_src = Path.join(["#{:code.priv_dir(:conform)}", "bin", "pre_upgrade.sh"])
