@@ -16,7 +16,7 @@ defmodule Conform.Mixfile do
       end
 
     [app: :conform,
-     version: "2.7.0",
+     version: "2.7.1",
      elixir: "~> 1.15",
      escript: [main_module: Conform, path: "priv/bin/conform", embed_elixir: embed_elixir?],
      compilers: compilers(@do_peg_compile?),
